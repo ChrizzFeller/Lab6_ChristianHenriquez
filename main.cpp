@@ -12,7 +12,7 @@ int main() {
 	int grad1;
 	cin >> grad1;
 	int* arr1 = new int[grad1];
-	for (int i = 0; i < grad1; i++) {
+	for (int i = 0; i <= grad1; i++) {
 		cout << "Ingrese un numero: " << endl;
 		int resp1;
 		cin >> resp1;
@@ -22,7 +22,7 @@ int main() {
 	int grad2;
 	cin >> grad2;
 	int* arr2 = new int[grad2];
-	for (int i = 0; i < grad2; i++) {
+	for (int i = 0; i <= grad2; i++) {
 		cout << "Ingrese un numero: " << endl;
 		int resp2;
 		cin >> resp2;
@@ -45,6 +45,7 @@ int main() {
 		cout << "7) Verificar si 2 funciones son diferentes" << endl;
 		cout << "8) Imprimir una funcion" << endl;
 		cout << "9) Agregar funcion" << endl;
+		cout << "10) Salir" << endl;
 		cin >> respu1;
 		if (respu1 == 1)
 		{
@@ -100,8 +101,8 @@ int main() {
 			}
 			int func1;
 			cin >> func1;
-			int respu4;
-			cout << "El factor comun es: " << (vect.at(func1)++) << endl;
+			++(*vect.at(func1));
+			cout << endl;
 		} else if (respu1 == 6)
 		{
 			cout << "Elija la funcion que desea comparar: " << endl;
@@ -134,16 +135,34 @@ int main() {
 			boo = *vect.at(func1) != vect.at(func2);
 			if (boo == true)
 			{
-				cout << "Las funciones no son iguales." << endl;
+				cout << "Las funciones son iguales." << endl;
 			} else {
-				cout << "Las funciones son iguales" << endl;
+				cout << "Las funciones no son iguales" << endl;
 			}
 		} else if (respu1 == 8)
 		{
-			
+			cout << "Elija la funcion que desea imprimir: " << endl;
+			for (int i = 0; i < vect.size(); i++)
+			{
+				cout << i << ") " << vect[i] << endl;
+			}
+			int func1;
+			cin >> func1;
+			cout << vect.at(func1) << endl;
 		} else if (respu1 == 9)
 		{
-			/* +code */
+			cout << "Ingrese el grado de la funcion: " << endl;
+			int grad3;
+			cin >> grad3;
+			int* arr3 = new int[grad3];
+			for (int i = 0; i <= grad3; i++) {
+				cout << "Ingrese un numero: " << endl;
+				int resp4;
+				cin >> resp4;
+				arr2[i] = resp4;
+			}
+			funcion* temp = new funcion(arr3, grad3);
+			vect.push_back(temp);
 		} else {
 		}
 	}

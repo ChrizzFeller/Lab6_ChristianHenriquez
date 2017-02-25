@@ -124,19 +124,24 @@ funcion* funcion::operator/(funcion* temp) {
 
 void funcion::operator++() {
 	bool ver = true;
-	int temp = numeros[0];
+	int temp2 = numeros[0];
+	cout << "Erro1" << endl;
 	for (int i = 0; i < grado; i++) {
-		if (numeros[i] % numeros[i+1] != 0)	{
+		if (i < grado - 1 && temp2 % numeros[i+1] == 0)	{
+			ver = true;
+			if (temp2 > numeros[i+1])
+			{
+				temp2 = numeros[i+1];
+			}
+		} else if(i < grado - 1) {
+			temp2 = 1;
 			ver = false;
-			temp = 0;
 			i = grado;
-		} else {
-			temp = numeros[i] / numeros[i+1];
 		}
 	}
-	if (ver == true)
+	if (temp2 != 1)
 	{
-		cout << "El factor comun es: " << temp;
+		cout << "El factor comun es: " << temp2;
 	} else {
 		cout << "No hay factor comun.";
 	}
@@ -160,9 +165,9 @@ bool funcion::operator==(funcion* temp) {
 
 bool funcion::operator!=(funcion* temp) {
 	bool rev = false;
-	if (grado != temp -> getGrado()) {
+	if (grado == temp -> getGrado()) {
 		for (int i = 0; i < grado; i++) {
-			if (numeros[i] != temp -> getNumeros(i)) {
+			if (numeros[i] == temp -> getNumeros(i)) {
 				rev = true;
 			} else {
 				rev = false;
