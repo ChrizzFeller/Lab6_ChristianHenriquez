@@ -187,7 +187,7 @@ ostream& operator<<(ostream& out, funcion* r){
 string funcion::toString() {
 	stringstream ss;
 	int t = grado;
-	for (int i = 0; i < grado; i++)
+	for (int i = 0; i <= grado; i++)
 	{
 		ss << numeros[i] << "x^" << t << " ";
 		t--;
